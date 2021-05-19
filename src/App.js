@@ -3,6 +3,7 @@ import './App.css';
 import db from './firebase';
 import firebase from 'firebase';
 import Message from './Message';
+import ScrollToBottom from 'react-scroll-to-bottom';
 
 function App() {
   const[input,setInput] = useState('');
@@ -11,7 +12,7 @@ function App() {
 
   useEffect(()=>{
     setUsername(prompt('Felhasználónév:'));
-    db.collection('messages').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
+    db.collection('messages').orderBy('timestamp', 'asc').onSnapshot(snapshot => {
       setMessages(snapshot.docs.map(doc=>doc.data()));
     });
   }, []);  
@@ -27,17 +28,22 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <form action="">
-        <input value={input} type="text" onChange={e => setInput(e.target.value)}/>
-        <button type='submit' onClick={sendMessage}>Send</button>
-      </form>
-      {
-        messages.map(message => (
-          <Message username={username} message={message}/>
-        ))
-      }
-    </div>
+    <ScrollToBottom>
+      <div className="App">
+      
+      <div className="messages">
+        {
+          messages.map(message => (
+            <Message username={username} message={message}/>
+          ))
+        }
+      </div>
+    <form action="">
+      <input placeholder='Aa' value={input} type="text" onChange={e => setInput(e.target.value)}/>
+      <button type='submit' onClick={sendMessage}><i className="fas fa-paper-plane"></i></button>
+    </form>      
+  </div>
+    </ScrollToBottom>
   );
 }
 
