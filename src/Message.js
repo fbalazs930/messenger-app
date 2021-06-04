@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Message({message, username}) {
+export default function Message({ message, username }) {
     const isUser = username === message.username;
     return (
         <div>

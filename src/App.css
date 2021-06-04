@@ -1,63 +1,63 @@
-*{
-    padding:0;
-    margin:0;
-    box-sizing:border-box;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
-.App{
-    font-family:sans-serif;
-    color:#eaeaea;
-    height: 100vh; 
+.App {
+    font-family: sans-serif;
+    color: #eaeaea;
+    height: 100vh;
     background-color: #b4bbc0;
 }
-form{
-    display:flex;
+form {
+    display: flex;
     justify-content: center;
     align-items: center;
-    gap:1rem;
+    gap: 1rem;
     width: 100%;
     position: fixed;
-    bottom:0;
-    left:50%;
-    transform:translateX(-50%);
-    padding:1rem;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem;
     z-index: 1;
 }
-input{
-    border-radius:2rem;
-    border:none;
-    outline:none;
-    padding:.7rem 1rem;
+input {
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    padding: 0.7rem 1rem;
     width: 30em;
 }
-.messages{
-    display:flex;
+.messages {
+    display: flex;
     flex-direction: column;
-    gap:.5rem;
+    gap: 0.5rem;
     padding: 20px 20px 4.6rem 20px;
-    color:#050505;
+    color: #050505;
 }
-.messages .message{    
-    padding:.8rem;
+.messages .message {
+    padding: 0.8rem;
     border-radius: 20px;
     display: inline-block;
     max-width: 400px;
     word-wrap: break-word;
 }
-button{
-    border:none;
-    outline:none;
-    background-color: transparent;    
+button {
+    border: none;
+    outline: none;
+    background-color: transparent;
 }
-button i{
+button i {
     cursor: pointer;
-    color:#0099FF;
+    color: #0099ff;
     font-size: 1.25rem;
 }
-.not-user{    
-    background-color: #E4E6EB;    
+.not-user {
+    background-color: #e4e6eb;
 }
-.user{
-    float:right;
-    background-color: #0099FF;
-    color:#FFF9FF;
+.user {
+    float: right;
+    background-color: #0099ff;
+    color: #fff9ff;
 }

@@ -6,16 +6,16 @@ import Message from './Message';
 import ScrollToBottom from 'react-scroll-to-bottom';
 
 function App() {
-  const[input,setInput] = useState('');
-  const[messages,setMessages] = useState([]);
-  const[username,setUsername] = useState('');
+  const [input, setInput] = useState('');
+  const [messages, setMessages] = useState([]);
+  const [username, setUsername] = useState('');
 
-  useEffect(()=>{
+  useEffect(() => {
     setUsername(prompt('Felhasználónév:'));
     db.collection('messages').orderBy('timestamp', 'asc').onSnapshot(snapshot => {
-      setMessages(snapshot.docs.map(doc=>doc.data()));
+      setMessages(snapshot.docs.map(doc => doc.data()));
     });
-  }, []);  
+  }, []);
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -30,19 +30,18 @@ function App() {
   return (
     <ScrollToBottom>
       <div className="App">
-      
-      <div className="messages">
-        {
-          messages.map(message => (
-            <Message username={username} message={message}/>
-          ))
-        }
+        <div className="messages">
+          {
+            messages.map(message => (
+              <Message username={username} message={message} />
+            ))
+          }
+        </div>
+        <form action="">
+          <input placeholder='Aa' value={input} type="text" onChange={e => setInput(e.target.value)} />
+          <button type='submit' onClick={sendMessage}><i className="fas fa-paper-plane"></i></button>
+        </form>
       </div>
-    <form action="">
-      <input placeholder='Aa' value={input} type="text" onChange={e => setInput(e.target.value)}/>
-      <button type='submit' onClick={sendMessage}><i className="fas fa-paper-plane"></i></button>
-    </form>      
-  </div>
     </ScrollToBottom>
   );
 }
